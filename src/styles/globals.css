@@ -1,0 +1,29 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Monaco, Consolas, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	color: grey;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+	body {
+		color: rgb(255, 255, 255);
+		background: rgb(0, 0, 0);
+	}
+}
