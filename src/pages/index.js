@@ -8,7 +8,7 @@ import {URL} from '../globals.js';
 
 export default function Home() {
 	const [texts, setTexts] = useState({});
-
+	console.log("URL IS: ", URL);
 	useEffect(() => {
 		const textsFinished = [
 			'Nelson Cortes',
