@@ -1,8 +1,8 @@
 import styles from './PortfolioEntry.module.css';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { Suspense, useEffect, useState } from 'react';
+import { Canvas, useLoader } from '@react-three/fiber';
+import { Suspense, useEffect, useLayoutEffect, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from '@react-three/drei';
 
 export default function PortfolioEntry(props) {
 	const [model, setModel] = useState(null);
@@ -10,7 +10,7 @@ export default function PortfolioEntry(props) {
 	useEffect(() => {
 		const loader = new GLTFLoader();
 		loader.load(props.graphic || [], async (gltf) => {
-			const nodes = await gltf.parser.getDependencies('node');
+			let nodes = (await gltf.parser.getDependencies('node'));
 			setModel(nodes[0]);
 		});
 	}, []);
@@ -25,11 +25,12 @@ export default function PortfolioEntry(props) {
 							shadows={true}
 							className={styles.canvas}
 							camera={{
-								position: [2, 2, 0],
+								position: props.camPosition || [2,2,2]
 							}}
 						>
+							<OrbitControls />
 							<ambientLight color={'white'} intensity={0.5} />
-							<primitive object={model} />
+							<primitive object={model} scale={Array(3).fill(props.graphicScale|| 1)} />
 						</Canvas>
 					</Suspense>
 				) : (

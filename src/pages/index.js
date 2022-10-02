@@ -10,7 +10,7 @@ export default function Home() {
 	useEffect(() => {
 		const textsFinished = [
 			'Nelson Cortes',
-			'Fintech Software Engineer',
+			'Software Engineer',
 			'Experience',
 			'Projects',
 			'About Me',
@@ -41,7 +41,7 @@ export default function Home() {
 				<section className={styles.portfolioSection} id="experienceSection">
 					<h2>Experience</h2>
 					<PortfolioEntry
-						graphic="http://localhost:3000/models/blockchainLogo/scene.gltf"
+						graphic={`${process.env.VERCEL_URL || 'http://localhost:3000'}/models/blockchainLogo/scene.glb`}
 						title="Blockchain.com"
 						subtitle="Software Engineer Intern"
 					></PortfolioEntry>
@@ -53,7 +53,8 @@ export default function Home() {
 				<section className={styles.portfolioSection} id="projectsSection">
 					<h2>Projects</h2>
 					<PortfolioEntry
-						graphic="http://localhost:3000/models/ramen/scene.gltf"
+						graphic={`${process.env.VERCEL_URL || 'http://localhost:3000'}/models/ramen/scene.glb`}
+						graphicScale={25}
 						title="market-ingestion-service"
 						description="NodeJS App that ingested and standardized cryptocurrency market data"
 					></PortfolioEntry>
