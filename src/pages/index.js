@@ -3,6 +3,8 @@ import styles from '../styles/Home.module.css';
 import { useState, useEffect } from 'react';
 import PortfolioEntry from '../components/PortfolioEntry';
 import { typeWrite } from '../utils';
+import {URL} from '../globals.js';
+
 
 export default function Home() {
 	const [texts, setTexts] = useState({});
@@ -41,7 +43,7 @@ export default function Home() {
 				<section className={styles.portfolioSection} id="experienceSection">
 					<h2>Experience</h2>
 					<PortfolioEntry
-						graphic={`${process.env.VERCEL_URL || 'http://localhost:3000'}/models/blockchainLogo/scene.glb`}
+						graphic={`${URL}/models/blockchainLogo/scene.glb`}
 						title="Blockchain.com"
 						subtitle="Software Engineer Intern"
 					></PortfolioEntry>
@@ -53,7 +55,7 @@ export default function Home() {
 				<section className={styles.portfolioSection} id="projectsSection">
 					<h2>Projects</h2>
 					<PortfolioEntry
-						graphic={`${process.env.VERCEL_URL || 'http://localhost:3000'}/models/ramen/scene.glb`}
+						graphic={`${URL}/models/ramen/scene.glb`}
 						graphicScale={25}
 						title="market-ingestion-service"
 						description="NodeJS App that ingested and standardized cryptocurrency market data"
