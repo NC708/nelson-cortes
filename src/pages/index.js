@@ -8,7 +8,6 @@ import {URL} from '../globals.js';
 
 export default function Home() {
 	const [texts, setTexts] = useState({});
-	console.log("URL IS: ", URL);
 	useEffect(() => {
 		const textsFinished = [
 			'Nelson Cortes',
@@ -19,6 +18,7 @@ export default function Home() {
 			' | ',
 			'Contact',
 		];
+		setTexts([]);
 		typeWrite(textsFinished, setTexts);
 	}, []);
 
@@ -44,10 +44,14 @@ export default function Home() {
 					<h2>Experience</h2>
 					<PortfolioEntry
 						graphic={`${URL}/models/blockchainLogo/scene.glb`}
+						graphicScale={1.2}
+						yOffset={2}
 						title="Blockchain.com"
 						subtitle="Software Engineer Intern"
 					></PortfolioEntry>
 					<PortfolioEntry
+						graphic={`${URL}/models/computer/scene.glb`}
+						graphicScale={0.13}
 						title="Freelancing"
 						subtitle="Web Designer/Developer"
 					></PortfolioEntry>
@@ -56,9 +60,10 @@ export default function Home() {
 					<h2>Projects</h2>
 					<PortfolioEntry
 						graphic={`${URL}/models/ramen/scene.glb`}
-						graphicScale={25}
-						title="market-ingestion-service"
-						description="NodeJS App that ingested and standardized cryptocurrency market data"
+						graphicScale={35}
+						yOffset={1}
+						title="CoinSoup.io"
+						description="Cryptocurrency webapp | More information coming soon!"
 					></PortfolioEntry>
 				</section>
 

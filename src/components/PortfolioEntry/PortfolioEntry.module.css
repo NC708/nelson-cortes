@@ -1,2 +1,19 @@
-.canvas {
+.portfolioEntry {
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+}
+
+.entryGraphic {
+    display:flex;
+    width:50%;
+}
+
+.entryDescription {
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width:50%;
+    text-align: end;
 }

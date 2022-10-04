@@ -1,8 +1,9 @@
 import styles from './PortfolioEntry.module.css';
-import { Canvas, useLoader } from '@react-three/fiber';
-import { Suspense, useEffect, useLayoutEffect, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Suspense, useEffect, useState, useRef } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from '@react-three/drei';
+import Graphic from '../Graphic'
 
 export default function PortfolioEntry(props) {
 	const [model, setModel] = useState(null);
@@ -16,26 +17,26 @@ export default function PortfolioEntry(props) {
 	}, []);
 
 	return (
-		<div className="portfolioEntry">
-			<div className="entryGraphic"></div>
-			<div className="entryDescription">
+		<div className={styles.portfolioEntry}>
+			<div className={styles.entryGraphic}>
 				{model ? (
 					<Suspense fallback={null}>
 						<Canvas
 							shadows={true}
 							className={styles.canvas}
 							camera={{
-								position: props.camPosition || [2,2,2]
+								position: props.camPosition || [8,3,0]
 							}}
 						>
-							<OrbitControls />
 							<ambientLight color={'white'} intensity={0.5} />
-							<primitive object={model} scale={Array(3).fill(props.graphicScale|| 1)} />
+							<Graphic model={model} graphicScale={props.graphicScale} yOffset={props.yOffset}/>
 						</Canvas>
 					</Suspense>
 				) : (
 					<text>Loading...</text>
 				)}
+			</div>
+			<div className={styles.entryDescription}>
 				<h3>{props.title}</h3>
 				<h4>{props.subtitle}</h4>
 				<text>{props.description}</text>
