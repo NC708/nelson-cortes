@@ -49,7 +49,9 @@ export default function PortfolioEntry(props) {
             <h3>Stack:</h3>{" "}
             <ul className={styles.stackList}>
               {props.stack.split(", ").map((member) => (
-                <li className={styles.listMember}>{member}</li>
+                <li key={member} className={styles.listMember}>
+                  {member}
+                </li>
               ))}
             </ul>
           </div>
