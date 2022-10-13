@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import PortfolioEntry from "../components/PortfolioEntry";
 import { typeWrite } from "../utils";
 import { URL } from "../globals.js";
+import Head from "next/head";
 
 export default function Home() {
   const [texts, setTexts] = useState({});
@@ -23,6 +24,9 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Nelson Cortes - Software Engineer</title>
+      </Head>
       <div className={styles.content}>
         <section className={styles.pageHeader}>
           <div className={styles.headerLeft}>
